@@ -1,105 +1,889 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Student Catalogue</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;700&display=swap">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Catalogue | Handmade Tote Bags</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+
 <style>
-/* Layout: sticky-less masthead, split hero with tilted photo stack, slogan ticker, filterable grid, dark contact band. */
-:root{--bg:#f6f6f2;--surface:#ffffff;--ink:#1a2140;--muted:#5b627a;--accent:#d6451f;--gold:#f0a81c;--line:#dcded6;--band:#1a2140;--bandink:#f1f2f8;
---display:'Young Serif',Georgia,serif;--body:'DM Sans',system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121629;--surface:#1c2342;--ink:#eef0f8;--muted:#a5abc4;--accent:#ff7d5c;--gold:#f6bb43;--line:#2c3459;--band:#0b0e1d;--bandink:#eef0f8;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#121629;--surface:#1c2342;--ink:#eef0f8;--muted:#a5abc4;--accent:#ff7d5c;--gold:#f6bb43;--line:#2c3459;--band:#0b0e1d;--bandink:#eef0f8;color-scheme:dark}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.5;margin:0}
-.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
-a{color:inherit}
-.nav{border-bottom:1px solid var(--line)}
-.nav .in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
-.brand{font-family:var(--display);font-size:1.25rem;text-decoration:none}
-.nav nav{display:flex;align-items:center;gap:20px;font-size:.92rem}
-.nav nav a{text-decoration:none;color:var(--muted)}.nav nav a:hover{color:var(--ink)}
-.cta{background:var(--accent);color:#fff!important;padding:9px 16px;border-radius:999px;font-weight:700;text-decoration:none}
-.cta:hover{filter:brightness(1.08)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.hero .in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:56px 48px}
-.eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:0 0 14px}
-h1{font-size:clamp(2.4rem,6.2vw,4.4rem);line-height:1.02}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--gold) 62% 92%,transparent 92%)}
-.lede{color:var(--muted);font-size:1.1rem;max-width:44ch;margin:18px 0 26px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.ghost{padding:9px 16px;border:2px solid var(--ink);border-radius:999px;font-weight:700;text-decoration:none}
-.ghost:hover{background:var(--ink);color:var(--bg)}
-.facts{display:flex;gap:28px;margin:30px 0 0;padding:0;list-style:none;flex-wrap:wrap}
-.facts b{display:block;font-family:var(--display);font-weight:400;font-size:1.7rem;font-variant-numeric:tabular-nums}
-.facts span{font-size:.82rem;color:var(--muted)}
-.stack{position:relative;min-height:420px}
-.stack img{position:absolute;width:56%;aspect-ratio:3/4;object-fit:cover;border:8px solid var(--surface);border-radius:4px;box-shadow:0 14px 34px rgba(10,14,40,.28)}
-.stack .a{left:0;top:30px;transform:rotate(-6deg)}
-.stack .b{right:0;top:0;transform:rotate(5deg);z-index:2}
-.stack .c{left:22%;bottom:0;transform:rotate(-1.5deg);z-index:3;width:50%}
-.ticker{background:var(--band);color:var(--bandin,var(--bandink));overflow:hidden;border-block:4px solid var(--gold)}
-.ticker div{display:flex;gap:40px;width:max-content;padding:14px 0;animation:tick 60s linear infinite;font-family:var(--display);font-size:1.05rem}
-.ticker span::after{content:"✦";color:var(--gold);margin-left:40px}
-@keyframes tick{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.ticker div{animation:none}}
-.shop{padding-block:52px 24px}
-.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-.head h2{font-size:clamp(1.8rem,4vw,2.6rem)}
-.head p{margin:6px 0 0;color:var(--muted)}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{font:inherit;font-size:.88rem;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,235px),1fr));gap:24px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(10,14,40,.16)}
-.card[hidden]{display:none}
-.ph{position:relative;overflow:hidden;background:var(--line)}
-.ph img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .4s}
-.card:hover .ph img{transform:scale(1.05)}
-.badge{position:absolute;top:10px;left:10px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
-.meta{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
-.meta h3{font-size:1.12rem}
-.slogan{margin:0;color:var(--muted);font-size:.9rem;flex:1}
-.buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
-.price{font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums}
-.price s{color:var(--muted);font-weight:400;font-size:.9rem}
-.order{background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:999px}
-.order:hover{background:var(--accent);color:#fff}
-.contact{background:var(--band);color:var(--bandink);margin-top:0;border-top:4px solid var(--gold)}
-.contact .in{padding-block:48px;display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
-.contact h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:10px}
-.contact p{margin:4px 0;opacity:.9}
-.contact .num{user-select:all}
-@media (max-width:760px){
-.hero .in{grid-template-columns:1fr;padding-block:36px 32px;gap:28px}
-.stack{min-height:340px;order:-1}
-.nav nav a:not(.cta){display:none}}
+:root {
+  --bg: #f6f6f2;
+  --white: #ffffff;
+  --ink: #1a2140;
+  --muted: #626980;
+  --accent: #d6451f;
+  --gold: #f0a81c;
+  --line: #dcded6;
+}
 
-.hero{background:radial-gradient(60% 70% at 85% 30%,color-mix(in srgb,var(--gold) 38%,transparent),transparent 70%),radial-gradient(45% 50% at 5% 90%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%)}
-.stack::before{content:"";position:absolute;inset:8% 6% 4% 10%;border-radius:50%;background:var(--gold);opacity:.35;filter:blur(2px)}
-.zig{height:14px;background:linear-gradient(135deg,var(--accent) 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(225deg,var(--accent) 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(315deg,var(--accent) 25%,transparent 25%) 0 0/14px 14px,linear-gradient(45deg,var(--accent) 25%,transparent 25%) 0 0/14px 14px}
-.feat .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px;padding-block:44px 8px}
-.feat div div{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:8px;padding:18px}
-.feat b{display:block;font-family:var(--display);font-weight:400;font-size:1.1rem;margin-bottom:4px}
-.feat span{color:var(--muted);font-size:.9rem}
-.how{padding-block:56px 8px}
-.how h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:22px}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px;counter-reset:s}
-.steps li{counter-increment:s;position:relative;padding:20px 18px 18px 64px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:1.1rem}
-.steps b{display:block}.steps span{color:var(--muted);font-size:.92rem}
-.card:hover{transform:translateY(-6px) rotate(-.6deg)}
-.price{color:var(--accent)}
-h1{font-size:clamp(2.6rem,7vw,5rem)}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Young Serif', Georgia, serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1150px, 100%);
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* NAVIGATION */
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.logo {
+  font-family: 'Young Serif', serif;
+  font-size: 23px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.secondary {
+  border: 2px solid var(--ink);
+}
+
+/* HERO */
+
+.hero {
+  background:
+    radial-gradient(circle at 80% 20%,
+      #ffe6a5, transparent 45%),
+    var(--bg);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: 1.12;
+  margin: 18px 0;
+}
+
+.hero h1 span {
+  background: linear-gradient(
+    transparent 65%,
+    var(--gold) 65%
+  );
+}
+
+.hero p.description {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 490px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.stats {
+  display: flex;
+  gap: 35px;
+  margin-top: 35px;
+}
+
+.stats strong {
+  display: block;
+  font-family: 'Young Serif', serif;
+  font-size: 27px;
+}
+
+.stats small {
+  color: var(--muted);
+}
+
+/* HERO IMAGE COLLAGE */
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.hero-images img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  background: white;
+  border: 7px solid white;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px #0002;
+}
+
+.hero-images img:last-child {
+  grid-column: 1 / -1;
+  width: 55%;
+  margin: auto;
+}
+
+/* MOVING BANNER */
+
+.ticker {
+  overflow: hidden;
+  background: var(--ink);
+  color: white;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 45px;
+  width: max-content;
+  padding: 15px 0;
+  animation: move 35s linear infinite;
+  font-family: 'Young Serif', serif;
+}
+
+.ticker span {
+  white-space: nowrap;
+}
+
+@keyframes move {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* FEATURES */
+
+.features {
+  padding: 55px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.feature h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* PRODUCTS */
+
+.products {
+  padding: 35px 0 65px;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 4vw, 43px);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px #0002;
+}
+
+.product-image {
+  position: relative;
+  background: #eeeeea;
+  padding: 10px;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 330px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-info h3 {
+  font-size: 20px;
+}
+
+.product-info p {
+  color: var(--muted);
+  font-size: 14px;
+  min-height: 42px;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.price {
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.order-btn {
+  background: var(--ink);
+  color: white;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-weight: 700;
+}
+
+.order-btn:hover {
+  background: var(--accent);
+}
+
+/* ORDER STEPS */
+
+.how {
+  padding: 35px 0 65px;
+}
+
+.how h2 {
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.step {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.step-number {
+  background: var(--accent);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.step p {
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--ink);
+  color: white;
+  border-top: 5px solid var(--gold);
+  padding: 55px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+footer h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-images {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  nav {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  nav .btn {
+    padding: 9px 12px;
+  }
+
+  .hero-content {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-images img {
+    height: 190px;
+  }
+
+  .stats {
+    gap: 20px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-image img {
+    height: auto;
+    max-height: 440px;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+  }
+
+  .product-info p {
+    min-height: 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
 </style>
-<header class="nav"><div class="in"><a class="brand" href="#">Student Catalogue</a><nav><a href="#products">Collection</a><a href="#contact">Contact</a><a class="cta" href="https://wa.me/919971889189">WhatsApp us</a></nav></div></header>
-<section class="hero"><div class="in"><div><p class="eyebrow">The Art of Academic Expression</p><h1>Totes with <em>stories</em> painted on them.</h1><p class="lede">Hand-painted canvas bags for market runs, mess lunches and everything in between. Pick a design, tap order, done.</p><div class="actions"><a class="cta" href="#products">Shop the collection</a><a class="ghost" href="#contact">Contact</a></div><ul class="facts"><li><b>9</b><span>designs</span></li><li><b>9</b><span>new this week</span></li><li><b>₹209</b><span>prices start at</span></li></ul></div>
-<div class="stack" aria-hidden="true"><img class="a" src="lady.jpg" alt=""><img class="b" src="warli.jpg" alt=""><img class="c" src="fish.jpg" alt=""></div></div></section>
-<div class="ticker" aria-hidden="true"><div><span>Something fishy? Just great taste.</span><span>Namaste! Now pass the snacks.</span><span>Every step deserves a jingle (and a jalebi).</span><span>Grace in every grocery run.</span><span>Dance your way to the sabzi mandi.</span><span>Give yourself time to bloom, like good dough.</span><span>Padharo! Fill me up with fresh sabzi.</span><span>Fresh from the market, bright as a sunflower.</span><span>Tension lene ka nahin, samosa lene ka!</span><span>Something fishy? Just great taste.</span><span>Namaste! Now pass the snacks.</span><span>Every step deserves a jingle (and a jalebi).</span><span>Grace in every grocery run.</span><span>Dance your way to the sabzi mandi.</span><span>Give yourself time to bloom, like good dough.</span><span>Padharo! Fill me up with fresh sabzi.</span><span>Fresh from the market, bright as a sunflower.</span><span>Tension lene ka nahin, samosa lene ka!</span></div></div>
-<section class="feat"><div class="in"><div><div><b>Hand-painted</b><span>Every design is painted by hand, so no two bags are exactly alike.</span></div></div><div><div><b>Sturdy canvas</b><span>Strong canvas bag with stitched handles for daily use.</span></div></div><div><div><b>Reusable</b><span>Swap plastic bags for something you will want to carry.</span></div></div><div><div><b>Easy ordering</b><span>Message us the design name on WhatsApp and we confirm.</span></div></div></div></section>
-<section class="shop" id="products"><div class="in"><div class="head"><div><h2>The Collection</h2><p>Every bag is one of a kind. Prices in rupees.</p></div></div><ul class="grid"><li class="card" data-cat="new"><div class="ph"><img src="fish.jpg" alt="Madhubani Fish Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Madhubani Fish Tote</h3><p class="slogan">Something fishy? Just great taste.</p><div class="buy"><span class="price">₹249</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Madhubani%20Fish%20Tote%20%28%E2%82%B9249%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="couple.jpg" alt="Jodi Namaste Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Jodi Namaste Tote</h3><p class="slogan">Namaste! Now pass the snacks.</p><div class="buy"><span class="price">₹249</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Jodi%20Namaste%20Tote%20%28%E2%82%B9249%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="ghungroo.jpg" alt="Ghungroo Step Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Ghungroo Step Tote</h3><p class="slogan">Every step deserves a jingle (and a jalebi).</p><div class="buy"><span class="price">₹249</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Ghungroo%20Step%20Tote%20%28%E2%82%B9249%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="lady.jpg" alt="Ghoonghat Grace Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Ghoonghat Grace Tote</h3><p class="slogan">Grace in every grocery run.</p><div class="buy"><span class="price">₹239</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Ghoonghat%20Grace%20Tote%20%28%E2%82%B9239%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="warli.jpg" alt="Warli Festival Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Warli Festival Tote</h3><p class="slogan">Dance your way to the sabzi mandi.</p><div class="buy"><span class="price">₹229</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Warli%20Festival%20Tote%20%28%E2%82%B9229%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="butterfly.jpg" alt="Time To Bloom Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Time To Bloom Tote</h3><p class="slogan">Give yourself time to bloom, like good dough.</p><div class="buy"><span class="price">₹229</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Time%20To%20Bloom%20Tote%20%28%E2%82%B9229%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="raja.jpg" alt="Rajasthani Raja Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Rajasthani Raja Tote</h3><p class="slogan">Padharo! Fill me up with fresh sabzi.</p><div class="buy"><span class="price">₹219</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Rajasthani%20Raja%20Tote%20%28%E2%82%B9219%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="sunflower.jpg" alt="Sunflower Soul Tote" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Sunflower Soul Tote</h3><p class="slogan">Fresh from the market, bright as a sunflower.</p><div class="buy"><span class="price">₹219</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Sunflower%20Soul%20Tote%20%28%E2%82%B9219%29.">Order</a></div></div></li><li class="card" data-cat="new"><div class="ph"><img src="tension.jpg" alt="Tension Lene Ka Nahin" loading="lazy" width="900" height="1200"><span class="badge">New</span></div><div class="meta"><h3>Tension Lene Ka Nahin</h3><p class="slogan">Tension lene ka nahin, samosa lene ka!</p><div class="buy"><span class="price">₹209</span><a class="order" href="https://wa.me/919971889189?text=Hi%21%20I%27d%20like%20to%20order%20the%20Tension%20Lene%20Ka%20Nahin%20%28%E2%82%B9209%29.">Order</a></div></div></li></ul></div></section>
-<section class="how"><div class="in"><h2>How to order</h2><ol class="steps"><li><b>Pick your design</b><span>Browse the collection and note the bag name.</span></li><li><b>Tap Order</b><span>WhatsApp opens with the bag and price already typed.</span></li><li><b>We confirm</b><span>We confirm the price and delivery with you.</span></li></ol></div></section>
-<div class="zig" style="margin-top:56px" aria-hidden="true"></div>
-<footer class="contact" id="contact"><div class="in"><div><h2>Contact Us</h2><p class="num">9971889189</p><p class="num">studentcatalogue@gmail.com</p></div><a class="cta" href="https://wa.me/919971889189">Order on WhatsApp</a></div></footer>
+</head>
 
-</body></html>
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">
+      Student Catalogue
+    </a>
+
+    <nav>
+      <a href="#products">Collection</a>
+      <a href="#contact">Contact</a>
+      <a class="btn primary"
+         href="https://wa.me/919971889189">
+        WhatsApp us
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container hero-content">
+
+    <div>
+      <p class="eyebrow">
+        The Art of Academic Expression
+      </p>
+
+      <h1>
+        Totes with
+        <span>stories</span>
+        painted on them.
+      </h1>
+
+      <p class="description">
+        Hand-painted canvas bags for market runs,
+        mess lunches and everything in between.
+        Pick a design, tap order, done.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="btn primary">
+          Shop the collection
+        </a>
+
+        <a href="#contact" class="btn secondary">
+          Contact
+        </a>
+      </div>
+
+      <div class="stats">
+        <div>
+          <strong>8</strong>
+          <small>Designs</small>
+        </div>
+
+        <div>
+          <strong>8</strong>
+          <small>New this week</small>
+        </div>
+
+        <div>
+          <strong>₹209</strong>
+          <small>Prices start at</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-images">
+      <img src="lady.jpg"
+           alt="Hand-painted lady tote">
+
+      <img src="warli.jpg"
+           alt="Warli art tote">
+
+      <img src="fish.jpg"
+           alt="Madhubani fish tote">
+    </div>
+
+  </div>
+</section>
+
+<!-- MOVING BANNER -->
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Hand Painted With Love ✦</span>
+    <span>Unique Canvas Bags ✦</span>
+    <span>Made With Creativity ✦</span>
+    <span>Carry Your Story ✦</span>
+    <span>Hand Painted With Love ✦</span>
+    <span>Unique Canvas Bags ✦</span>
+    <span>Made With Creativity ✦</span>
+    <span>Carry Your Story ✦</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+
+<section class="features">
+  <div class="container feature-grid">
+
+    <div class="feature">
+      <h3>Hand-painted</h3>
+      <p>
+        Every design is painted by hand,
+        so no two bags are exactly alike.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Sturdy Canvas</h3>
+      <p>
+        Strong canvas bags with stitched
+        handles for everyday use.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Reusable</h3>
+      <p>
+        Swap plastic bags for something
+        creative and reusable.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>Easy Ordering</h3>
+      <p>
+        Message us the design name on
+        WhatsApp to place an order.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>The Collection</h2>
+      <p>
+        Every bag is one of a kind.
+        Prices in Indian rupees.
+      </p>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+
+<section class="how">
+  <div class="container">
+
+    <h2>How to Order</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Pick Your Design</h3>
+        <p>
+          Browse the collection and choose
+          your favourite tote bag.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Tap Order</h3>
+        <p>
+          Click Order to open WhatsApp
+          with your selected product.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>We Confirm</h3>
+        <p>
+          We confirm the price and
+          delivery details with you.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<footer id="contact">
+  <div class="container footer-content">
+
+    <div>
+      <h2>Contact Us</h2>
+      <p>Phone: 9971889189</p>
+      <p>Email: studentcatalogue@gmail.com</p>
+    </div>
+
+    <a class="btn primary"
+       href="https://wa.me/919971889189">
+      Order on WhatsApp
+    </a>
+
+  </div>
+</footer>
+
+<script>
+
+/* ALL EIGHT PRODUCTS */
+
+const products = [
+  {
+    name: "Madhubani Fish Tote",
+    image: "fish.jpg",
+    price: 249,
+    description: "Something fishy? Just great taste."
+  },
+  {
+    name: "Ghungroo Step Tote",
+    image: "ghungroo.jpg",
+    price: 249,
+    description: "Every step deserves a jingle."
+  },
+  {
+    name: "Ghoonghat Grace Tote",
+    image: "lady.jpg",
+    price: 239,
+    description: "Grace in every grocery run."
+  },
+  {
+    name: "Warli Festival Tote",
+    image: "warli.jpg",
+    price: 229,
+    description: "Dance your way to the sabzi mandi."
+  },
+  {
+    name: "Time To Bloom Tote",
+    image: "butterfly.jpg",
+    price: 229,
+    description: "Give yourself time to bloom."
+  },
+  {
+    name: "Rajasthani Raja Tote",
+    image: "raja.jpg",
+    price: 219,
+    description: "Padharo! Fill me up with fresh sabzi."
+  },
+  {
+    name: "Sunflower Soul Tote",
+    image: "sunflower.jpg",
+    price: 219,
+    description: "Fresh from the market, bright as a sunflower."
+  },
+  {
+    name: "Tension Lene Ka Nahin",
+    image: "tension.jpg",
+    price: 209,
+    description: "Tension lene ka nahin, samosa lene ka!"
+  }
+];
+
+const grid = document.getElementById("productGrid");
+
+products.forEach(product => {
+
+  const card = document.createElement("article");
+  card.className = "product-card";
+
+  const imageBox = document.createElement("div");
+  imageBox.className = "product-image";
+
+  const img = document.createElement("img");
+  img.src = product.image;
+  img.alt = product.name;
+  img.loading = "lazy";
+
+  img.onerror = function() {
+    this.onerror = null;
+    this.style.display = "none";
+
+    const message = document.createElement("p");
+    message.textContent =
+      "Image unavailable: " + product.image;
+    message.style.textAlign = "center";
+    message.style.padding = "50px 10px";
+
+    imageBox.appendChild(message);
+  };
+
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent = "NEW";
+
+  imageBox.appendChild(img);
+  imageBox.appendChild(tag);
+
+  const info = document.createElement("div");
+  info.className = "product-info";
+
+  const heading = document.createElement("h3");
+  heading.textContent = product.name;
+
+  const description = document.createElement("p");
+  description.textContent = product.description;
+
+  const bottom = document.createElement("div");
+  bottom.className = "product-bottom";
+
+  const price = document.createElement("span");
+  price.className = "price";
+  price.textContent = "₹" + product.price;
+
+  const order = document.createElement("a");
+  order.className = "order-btn";
+  order.textContent = "Order";
+
+  const message =
+    "Hi! I'd like to order the " +
+    product.name +
+    " (₹" + product.price + ").";
+
+  order.href =
+    "https://wa.me/919971889189?text=" +
+    encodeURIComponent(message);
+
+  order.target = "_blank";
+  order.rel = "noopener noreferrer";
+
+  bottom.appendChild(price);
+  bottom.appendChild(order);
+
+  info.appendChild(heading);
+  info.appendChild(description);
+  info.appendChild(bottom);
+
+  card.appendChild(imageBox);
+  card.appendChild(info);
+
+  grid.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>
